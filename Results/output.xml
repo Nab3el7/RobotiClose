@@ -1,0 +1,1287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.4 on win32)" generated="20220131 18:34:35.878" rpa="false" schemaversion="2">
+<suite id="s1" name="tc01-InvalidLogin &amp; tc02-ValidLogin &amp; tc03-Intake &amp; tc04-Purchase">
+<suite id="s1-s1" name="tc01-InvalidLogin" source="E:\RobotiClose\TestCases\tc01-InvalidLogin.robot">
+<kw name="Open Browser To Login Page" library="kLogin" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220131 18:34:36.321" level="INFO">Opening browser 'Firefox' to base url 'https://refactorui.dev.iclose.ca/iclose/#/auth/login?returnUrl=%2Fhome'.</msg>
+<msg timestamp="20220131 18:34:36.323" level="INFO">Firefox driver log is always forced to to: E:\RobotiClose\Results\geckodriver-1.log</msg>
+<status status="PASS" starttime="20220131 18:34:36.320" endtime="20220131 18:34:50.267"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220131 18:34:50.268" endtime="20220131 18:34:50.271"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220131 18:34:50.271" endtime="20220131 18:34:50.272"/>
+</kw>
+<kw name="Go To Login Page" library="kLogin">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220131 18:34:51.276" level="INFO">Current location is 'https://refactorui.dev.iclose.ca/iclose/#/auth/login?returnUrl=%2Fhome'.</msg>
+<status status="PASS" starttime="20220131 18:34:50.272" endtime="20220131 18:34:51.276"/>
+</kw>
+<kw name="Login Page Should Be Open" library="kLogin">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>iClose Ontario</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220131 18:34:52.290" level="INFO">Page title is 'iClose Ontario'.</msg>
+<status status="PASS" starttime="20220131 18:34:51.277" endtime="20220131 18:34:52.290"/>
+</kw>
+<status status="PASS" starttime="20220131 18:34:51.276" endtime="20220131 18:34:52.290"/>
+</kw>
+<status status="PASS" starttime="20220131 18:34:50.272" endtime="20220131 18:34:52.290"/>
+</kw>
+<status status="PASS" starttime="20220131 18:34:36.320" endtime="20220131 18:34:52.291"/>
+</kw>
+<test id="s1-s1-t1" name="Invalid Username">
+<kw name="Login With Invalid Credentials Should Fail" library="kLogin">
+<arg>invalid</arg>
+<arg>${password}</arg>
+<kw name="Input Username" library="kLogin">
+<arg>${username}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:34:52.294" level="INFO">Typing text 'invalid' into text field 'username'.</msg>
+<status status="PASS" starttime="20220131 18:34:52.293" endtime="20220131 18:34:55.402"/>
+</kw>
+<status status="PASS" starttime="20220131 18:34:52.293" endtime="20220131 18:34:55.402"/>
+</kw>
+<kw name="Input Password" library="kLogin">
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:34:55.403" level="INFO">Typing text 'P@55w0rd@' into text field 'password'.</msg>
+<status status="PASS" starttime="20220131 18:34:55.403" endtime="20220131 18:34:58.461"/>
+</kw>
+<status status="PASS" starttime="20220131 18:34:55.402" endtime="20220131 18:34:58.461"/>
+</kw>
+<kw name="Submit Credentials" library="kLogin">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css=.btn-login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220131 18:34:58.462" level="INFO">Clicking button 'css=.btn-login'.</msg>
+<status status="PASS" starttime="20220131 18:34:58.462" endtime="20220131 18:35:03.767"/>
+</kw>
+<status status="PASS" starttime="20220131 18:34:58.461" endtime="20220131 18:35:03.767"/>
+</kw>
+<status status="PASS" starttime="20220131 18:34:52.292" endtime="20220131 18:35:03.767"/>
+</kw>
+<status status="PASS" starttime="20220131 18:34:52.291" endtime="20220131 18:35:03.768"/>
+</test>
+<test id="s1-s1-t2" name="Invalid Password">
+<kw name="Login With Invalid Credentials Should Fail" library="kLogin">
+<arg>${email}</arg>
+<arg>invalid</arg>
+<kw name="Input Username" library="kLogin">
+<arg>${username}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:35:03.772" level="INFO">Typing text 'superadmin@iclose.ca' into text field 'username'.</msg>
+<status status="PASS" starttime="20220131 18:35:03.771" endtime="20220131 18:35:06.851"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:03.771" endtime="20220131 18:35:06.851"/>
+</kw>
+<kw name="Input Password" library="kLogin">
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:35:06.852" level="INFO">Typing text 'invalid' into text field 'password'.</msg>
+<status status="PASS" starttime="20220131 18:35:06.852" endtime="20220131 18:35:09.900"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:06.851" endtime="20220131 18:35:09.900"/>
+</kw>
+<kw name="Submit Credentials" library="kLogin">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css=.btn-login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220131 18:35:09.901" level="INFO">Clicking button 'css=.btn-login'.</msg>
+<status status="PASS" starttime="20220131 18:35:09.901" endtime="20220131 18:35:15.178"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:09.900" endtime="20220131 18:35:15.178"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:03.770" endtime="20220131 18:35:15.178"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:03.769" endtime="20220131 18:35:15.179"/>
+</test>
+<test id="s1-s1-t3" name="Empty Password">
+<kw name="Login With Invalid Credentials Should Fail" library="kLogin">
+<arg>${email}</arg>
+<arg>${EMPTY}</arg>
+<kw name="Input Username" library="kLogin">
+<arg>${username}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:35:15.183" level="INFO">Typing text 'superadmin@iclose.ca' into text field 'username'.</msg>
+<status status="PASS" starttime="20220131 18:35:15.182" endtime="20220131 18:35:18.248"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:15.182" endtime="20220131 18:35:18.248"/>
+</kw>
+<kw name="Input Password" library="kLogin">
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:35:18.249" level="INFO">Typing text '' into text field 'password'.</msg>
+<status status="PASS" starttime="20220131 18:35:18.249" endtime="20220131 18:35:21.294"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:18.248" endtime="20220131 18:35:21.294"/>
+</kw>
+<kw name="Submit Credentials" library="kLogin">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css=.btn-login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220131 18:35:21.295" level="INFO">Clicking button 'css=.btn-login'.</msg>
+<status status="PASS" starttime="20220131 18:35:21.295" endtime="20220131 18:35:26.577"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:21.294" endtime="20220131 18:35:26.577"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:15.181" endtime="20220131 18:35:26.577"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:15.180" endtime="20220131 18:35:26.578"/>
+</test>
+<test id="s1-s1-t4" name="CloseBrowser">
+<status status="FAIL" starttime="20220131 18:35:26.579" endtime="20220131 18:35:26.580">Test case contains no keywords.</status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220131 18:35:26.582" endtime="20220131 18:35:28.773"/>
+</kw>
+<doc>A test suite containing tests related to invalid login.
+
+These tests are data-driven by their nature. They use a single
+keyword, specified with Test Template setting, that is called
+with different arguments to cover different scenarios.
+
+This suite also demonstrates using setups and teardowns in
+different levels.</doc>
+<status status="FAIL" starttime="20220131 18:34:35.923" endtime="20220131 18:35:28.773"/>
+</suite>
+<suite id="s1-s2" name="tc02-ValidLogin" source="E:\RobotiClose\TestCases\tc02-ValidLogin.robot">
+<test id="s1-s2-t1" name="ValidLogin">
+<kw name="Open Browser To Login Page" library="kLogin">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220131 18:35:28.789" level="INFO">Opening browser 'Firefox' to base url 'https://refactorui.dev.iclose.ca/iclose/#/auth/login?returnUrl=%2Fhome'.</msg>
+<msg timestamp="20220131 18:35:28.790" level="INFO">Firefox driver log is always forced to to: E:\RobotiClose\Results\geckodriver-2.log</msg>
+<status status="PASS" starttime="20220131 18:35:28.789" endtime="20220131 18:35:41.824"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220131 18:35:41.824" endtime="20220131 18:35:42.834"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220131 18:35:42.834" endtime="20220131 18:35:42.835"/>
+</kw>
+<kw name="Go To Login Page" library="kLogin">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220131 18:35:43.847" level="INFO">Current location is 'https://refactorui.dev.iclose.ca/iclose/#/auth/login?returnUrl=%2Fhome'.</msg>
+<status status="PASS" starttime="20220131 18:35:42.836" endtime="20220131 18:35:43.847"/>
+</kw>
+<kw name="Login Page Should Be Open" library="kLogin">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>iClose Ontario</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220131 18:35:44.857" level="INFO">Page title is 'iClose Ontario'.</msg>
+<status status="PASS" starttime="20220131 18:35:43.848" endtime="20220131 18:35:44.857"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:43.847" endtime="20220131 18:35:44.857"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:42.835" endtime="20220131 18:35:44.858"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:28.788" endtime="20220131 18:35:44.858"/>
+</kw>
+<kw name="Input Username" library="kLogin">
+<arg>${email}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:35:44.859" level="INFO">Typing text 'superadmin@iclose.ca' into text field 'username'.</msg>
+<status status="PASS" starttime="20220131 18:35:44.859" endtime="20220131 18:35:47.955"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:44.858" endtime="20220131 18:35:47.955"/>
+</kw>
+<kw name="Input Password" library="kLogin">
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:35:47.957" level="INFO">Typing text 'P@55w0rd@' into text field 'password'.</msg>
+<status status="PASS" starttime="20220131 18:35:47.956" endtime="20220131 18:35:51.002"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:47.956" endtime="20220131 18:35:51.002"/>
+</kw>
+<kw name="Submit Credentials" library="kLogin">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css=.btn-login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220131 18:35:51.003" level="INFO">Clicking button 'css=.btn-login'.</msg>
+<status status="PASS" starttime="20220131 18:35:51.003" endtime="20220131 18:35:56.343"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:51.003" endtime="20220131 18:35:56.343"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220131 18:35:56.344" endtime="20220131 18:35:57.352"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:28.788" endtime="20220131 18:35:57.353"/>
+</test>
+<doc>A test case for valid login.</doc>
+<meta name="Version">2.0</meta>
+<status status="PASS" starttime="20220131 18:35:28.777" endtime="20220131 18:35:57.354"/>
+</suite>
+<suite id="s1-s3" name="tc03-Intake" source="E:\RobotiClose\TestCases\tc03-Intake.robot">
+<test id="s1-s3-t1" name="Sale_Intake">
+<kw name="NewIntake" library="kHome">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${AddIntake}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:35:57.410" endtime="20220131 18:36:00.129"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${AddIntake}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:36:00.130" level="INFO">Clicking element 'xpath=//footer//*[contains(@class,'icon-icon_add')]'.</msg>
+<status status="PASS" starttime="20220131 18:36:00.129" endtime="20220131 18:36:02.417"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:57.410" endtime="20220131 18:36:02.417"/>
+</kw>
+<kw name="Create S_Intake" library="kHome">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Sale Intake}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:36:02.419" level="INFO">Clicking element 'xpath=//*[contains(@class,'addmenu')]//*[@role='menuitem']//a[contains(text(),'Sale')]'.</msg>
+<status status="PASS" starttime="20220131 18:36:02.419" endtime="20220131 18:36:10.279"/>
+</kw>
+<status status="PASS" starttime="20220131 18:36:02.418" endtime="20220131 18:36:10.280"/>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<msg timestamp="20220131 18:36:11.292" level="INFO">${url} = https://refactorui.dev.iclose.ca/iclose/#/propertysale/sales</msg>
+<status status="PASS" starttime="20220131 18:36:10.280" endtime="20220131 18:36:11.292"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220131 18:36:11.293" endtime="20220131 18:36:11.293"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220131 18:36:16.303" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20220131 18:36:11.294" endtime="20220131 18:36:16.303"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${SaleIntakeURL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220131 18:36:17.317" level="INFO">Current location is 'https://refactorui.dev.iclose.ca/iclose/#/propertysale/sales'.</msg>
+<status status="PASS" starttime="20220131 18:36:16.304" endtime="20220131 18:36:17.317"/>
+</kw>
+<status status="PASS" starttime="20220131 18:35:57.409" endtime="20220131 18:36:17.318"/>
+</test>
+<test id="s1-s3-t2" name="Property_Info">
+<kw name="Property-Info" library="kIntake">
+<arg>78</arg>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${Wait}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220131 18:36:17.321" endtime="20220131 18:36:18.335"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${instName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:36:18.336" level="INFO">Clicking element '//*[@id='PropertyInfoSection']//label[@for='streetName']/../input'.</msg>
+<status status="PASS" starttime="20220131 18:36:18.335" endtime="20220131 18:36:20.888"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${instName}</arg>
+<arg>${Street}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:36:20.889" level="INFO">Typing text '78' into text field '//*[@id='PropertyInfoSection']//label[@for='streetName']/../input'.</msg>
+<status status="PASS" starttime="20220131 18:36:20.888" endtime="20220131 18:36:24.169"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220131 18:36:26.182" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220131 18:36:24.169" endtime="20220131 18:36:26.182"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${instDrop}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:36:26.183" endtime="20220131 18:36:28.284"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${instDrop}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:36:28.285" level="INFO">Clicking element 'xpath=//*[@class='pac-item'][3]'.</msg>
+<status status="PASS" starttime="20220131 18:36:28.284" endtime="20220131 18:36:31.071"/>
+</kw>
+<status status="PASS" starttime="20220131 18:36:17.320" endtime="20220131 18:36:31.071"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220131 18:36:36.083" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20220131 18:36:31.072" endtime="20220131 18:36:36.083"/>
+</kw>
+<status status="PASS" starttime="20220131 18:36:17.319" endtime="20220131 18:36:36.084"/>
+</test>
+<test id="s1-s3-t3" name="Sales_Info">
+<kw name="Closing Date" library="kIntake">
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220131 18:36:36.087" endtime="20220131 18:36:36.088"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ClosingDate}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:36:36.088" endtime="20220131 18:36:38.188"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ClosingDate}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:36:38.189" level="INFO">Clicking element 'xpath=//*[@formcontrolname="ClosingDate"]'.</msg>
+<status status="PASS" starttime="20220131 18:36:38.188" endtime="20220131 18:36:40.826"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${cNext}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:36:40.826" endtime="20220131 18:36:42.916"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${cNext}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:36:42.917" level="INFO">Clicking element 'xpath=//*[@formcontrolname="ClosingDate"]/..//button[@title="Next month"]'.</msg>
+<status status="PASS" starttime="20220131 18:36:42.916" endtime="20220131 18:36:45.427"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CDatePick}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:36:45.427" endtime="20220131 18:36:47.505"/>
+</kw>
+<status status="PASS" starttime="20220131 18:36:36.086" endtime="20220131 18:36:47.505"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${CDatePick}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:36:47.506" level="INFO">Clicking element 'xpath=//*[@role='gridcell']//*[@ngbdatepickerdayview][text()=17]'.</msg>
+<status status="PASS" starttime="20220131 18:36:47.506" endtime="20220131 18:36:50.008"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220131 18:36:52.013" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220131 18:36:50.009" endtime="20220131 18:36:52.013"/>
+</kw>
+<kw name="Requisition Date" library="kIntake">
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220131 18:36:52.014" endtime="20220131 18:36:52.015"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${RequisitDate}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:36:52.015" endtime="20220131 18:36:54.114"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${RequisitDate}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:36:54.115" level="INFO">Clicking element 'xpath=//*[@formcontrolname="RequisitionDate"]'.</msg>
+<status status="PASS" starttime="20220131 18:36:54.114" endtime="20220131 18:36:56.776"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${rNext}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:36:56.776" endtime="20220131 18:36:58.871"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${rNext}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:36:58.872" level="INFO">Clicking element 'xpath=//*[@formcontrolname="RequisitionDate"]/..//button[@title="Next month"]'.</msg>
+<status status="PASS" starttime="20220131 18:36:58.871" endtime="20220131 18:37:01.404"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${RDatePick}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:37:01.404" endtime="20220131 18:37:03.499"/>
+</kw>
+<status status="PASS" starttime="20220131 18:36:52.014" endtime="20220131 18:37:03.499"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${RDatePick}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:03.500" level="INFO">Clicking element 'xpath=//*[@role='gridcell']//*[@ngbdatepickerdayview][text()=16]'.</msg>
+<status status="PASS" starttime="20220131 18:37:03.500" endtime="20220131 18:37:06.048"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220131 18:37:08.050" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220131 18:37:06.049" endtime="20220131 18:37:08.050"/>
+</kw>
+<status status="PASS" starttime="20220131 18:36:36.085" endtime="20220131 18:37:08.051"/>
+</test>
+<test id="s1-s3-t4" name="Seller_Lawyer_Info">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20220131 18:37:08.054" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20220131 18:37:08.054" endtime="20220131 18:37:09.094"/>
+</kw>
+<kw name="Lawyer Info" library="kIntake">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${sLawyer}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:37:09.095" endtime="20220131 18:37:11.177"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sLawyer}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:11.178" level="INFO">Clicking element '//*[@id="openingInfo"]//*[@formcontrolname='Lawyer']'.</msg>
+<status status="PASS" starttime="20220131 18:37:11.177" endtime="20220131 18:37:13.745"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sLawyerDrop}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:13.746" level="INFO">Clicking element '//*[@id="openingInfo"]//*[@formcontrolname='Lawyer']//*[@role='option'][3]'.</msg>
+<status status="PASS" starttime="20220131 18:37:13.745" endtime="20220131 18:37:16.280"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${Wait}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220131 18:37:16.280" endtime="20220131 18:37:17.298"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${sClerk}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:37:17.298" endtime="20220131 18:37:19.375"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sClerk}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:19.376" level="INFO">Clicking element '//*[@id="openingInfo"]//*[@formcontrolname='Clerk']'.</msg>
+<status status="PASS" starttime="20220131 18:37:19.375" endtime="20220131 18:37:21.909"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sClerkDrop}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:21.910" level="INFO">Clicking element '//*[@id="openingInfo"]//*[@formcontrolname='Clerk']//*[@role='option'][2]'.</msg>
+<status status="PASS" starttime="20220131 18:37:21.909" endtime="20220131 18:37:24.370"/>
+</kw>
+<status status="PASS" starttime="20220131 18:37:09.095" endtime="20220131 18:37:24.370"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220131 18:37:26.387" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220131 18:37:24.371" endtime="20220131 18:37:26.387"/>
+</kw>
+<status status="PASS" starttime="20220131 18:37:08.053" endtime="20220131 18:37:26.388"/>
+</test>
+<test id="s1-s3-t5" name="Client_Info">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20220131 18:37:26.391" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20220131 18:37:26.390" endtime="20220131 18:37:27.424"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1Type}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:27.425" level="INFO">Clicking element '//*[@id="Client0"]//*[@formcontrolname='Type']'.</msg>
+<status status="PASS" starttime="20220131 18:37:27.425" endtime="20220131 18:37:29.992"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1TypeDrop}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:29.993" level="INFO">Clicking element '//*[@id="Client0"]//*[@formcontrolname='Type']//*[@value='Client']'.</msg>
+<status status="PASS" starttime="20220131 18:37:29.993" endtime="20220131 18:37:32.457"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${inC1RN}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:37:32.458" endtime="20220131 18:37:34.628"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1RN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:34.630" level="INFO">Clicking element '//*[@id="Client0"]//*[@id="rdbtnFSBONo"]'.</msg>
+<status status="PASS" starttime="20220131 18:37:34.629" endtime="20220131 18:37:37.098"/>
+</kw>
+<kw name="Client0-Info" library="kIntake">
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${Wait}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220131 18:37:37.099" endtime="20220131 18:37:38.110"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1FName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:38.111" level="INFO">Clicking element '//*[@id="Client0"]//*[@formcontrolname='FirstName']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:37:38.110" endtime="20220131 18:37:40.711"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inC1FName}</arg>
+<arg>${C1FName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:40.712" level="INFO">Typing text 'Mary' into text field '//*[@id="Client0"]//*[@formcontrolname='FirstName']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:37:40.711" endtime="20220131 18:37:44.103"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1LName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:44.104" level="INFO">Clicking element '//*[@id="Client0"]//*[@formcontrolname='Surname']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:37:44.103" endtime="20220131 18:37:46.936"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inC1LName}</arg>
+<arg>${C1LName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:46.937" level="INFO">Typing text 'Johnson' into text field '//*[@id="Client0"]//*[@formcontrolname='Surname']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:37:46.936" endtime="20220131 18:37:50.480"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1MName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:50.481" level="INFO">Clicking element '//*[@id="Client0"]//*[@formcontrolname='MiddleName']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:37:50.480" endtime="20220131 18:37:53.331"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inC1MName}</arg>
+<arg>${C1MName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:53.332" level="INFO">Typing text 'Blake' into text field '//*[@id="Client0"]//*[@formcontrolname='MiddleName']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:37:53.331" endtime="20220131 18:37:56.679"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1Hphone}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:56.680" level="INFO">Clicking element '//*[@id="Client0"]//*[@formcontrolname='HomePhone']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:37:56.679" endtime="20220131 18:37:59.294"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inC1Hphone}</arg>
+<arg>${C1Hphone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:37:59.295" level="INFO">Typing text '324-324-5414' into text field '//*[@id="Client0"]//*[@formcontrolname='HomePhone']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:37:59.294" endtime="20220131 18:38:03.047"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1Wphone}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:03.048" level="INFO">Clicking element '//*[@id="Client0"]//*[@formcontrolname='WorkPhone']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:03.047" endtime="20220131 18:38:05.645"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inC1Wphone}</arg>
+<arg>${C1Wphone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:05.646" level="INFO">Typing text '887-468-3477' into text field '//*[@id="Client0"]//*[@formcontrolname='WorkPhone']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:05.645" endtime="20220131 18:38:09.322"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1Cphone}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:09.323" level="INFO">Clicking element '//*[@id="Client0"]//*[@formcontrolname='CellPhone']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:09.322" endtime="20220131 18:38:11.937"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inC1Cphone}</arg>
+<arg>${C1Cphone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:11.938" level="INFO">Typing text '476-755-4798' into text field '//*[@id="Client0"]//*[@formcontrolname='CellPhone']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:11.937" endtime="20220131 18:38:15.668"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1Email}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:15.669" level="INFO">Clicking element '//*[@id="Client0"]//*[@formcontrolname='Email']'.</msg>
+<status status="PASS" starttime="20220131 18:38:15.668" endtime="20220131 18:38:18.269"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inC1Email}</arg>
+<arg>${C1Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:18.270" level="INFO">Typing text 'mary@iclose.ca' into text field '//*[@id="Client0"]//*[@formcontrolname='Email']'.</msg>
+<status status="PASS" starttime="20220131 18:38:18.269" endtime="20220131 18:38:22.083"/>
+</kw>
+<status status="PASS" starttime="20220131 18:37:37.099" endtime="20220131 18:38:22.083"/>
+</kw>
+<status status="PASS" starttime="20220131 18:37:26.389" endtime="20220131 18:38:22.084"/>
+</test>
+<test id="s1-s3-t6" name="Buyer-Info">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20220131 18:38:22.088" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20220131 18:38:22.087" endtime="20220131 18:38:23.167"/>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<arg>${inB1Type}</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20220131 18:38:23.168" endtime="20220131 18:38:25.305"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inB1Type}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:25.306" level="INFO">Clicking element '//*[@id="Buyer0"]//*[@formcontrolname='Type']'.</msg>
+<status status="PASS" starttime="20220131 18:38:25.306" endtime="20220131 18:38:27.750"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inB1TypeDrop}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:27.751" level="INFO">Clicking element '//*[@id="Buyer0"]//*[@formcontrolname='Type']//*[@value='Client']'.</msg>
+<status status="PASS" starttime="20220131 18:38:27.751" endtime="20220131 18:38:30.122"/>
+</kw>
+<kw name="Buyer0-Info" library="kIntake">
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${Wait}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220131 18:38:30.124" endtime="20220131 18:38:31.138"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inB1FName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:31.139" level="INFO">Clicking element '//*[@id="Buyer0"]//*[@formcontrolname='FirstName']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:31.138" endtime="20220131 18:38:33.756"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inB1FName}</arg>
+<arg>${B1FName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:33.757" level="INFO">Typing text 'Lok' into text field '//*[@id="Buyer0"]//*[@formcontrolname='FirstName']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:33.756" endtime="20220131 18:38:36.951"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inB1LName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:36.952" level="INFO">Clicking element '//*[@id="Buyer0"]//*[@formcontrolname='Surname']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:36.951" endtime="20220131 18:38:39.536"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inB1LName}</arg>
+<arg>${B1LName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:39.537" level="INFO">Typing text 'Nicholas' into text field '//*[@id="Buyer0"]//*[@formcontrolname='Surname']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:39.536" endtime="20220131 18:38:43.110"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inB1MName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:43.111" level="INFO">Clicking element '//*[@id="Buyer0"]//*[@formcontrolname='MiddleName']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:43.110" endtime="20220131 18:38:45.777"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inB1MName}</arg>
+<arg>${B1MName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:45.778" level="INFO">Typing text 'Gary' into text field '//*[@id="Buyer0"]//*[@formcontrolname='MiddleName']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:45.777" endtime="20220131 18:38:49.151"/>
+</kw>
+<status status="PASS" starttime="20220131 18:38:30.123" endtime="20220131 18:38:49.151"/>
+</kw>
+<status status="PASS" starttime="20220131 18:38:22.086" endtime="20220131 18:38:49.152"/>
+</test>
+<test id="s1-s3-t7" name="Money_Info">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20220131 18:38:49.155" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20220131 18:38:49.155" endtime="20220131 18:38:50.215"/>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<arg>${MHeading}</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20220131 18:38:50.216" endtime="20220131 18:38:52.308"/>
+</kw>
+<kw name="Money-Info" library="kIntake">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inPrice}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:52.310" level="INFO">Clicking element '//*[@id='moneySection']//*[contains(text(), 'Purchase Price')]/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:52.309" endtime="20220131 18:38:54.908"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inPrice}</arg>
+<arg>${pPrice}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:54.909" level="INFO">Typing text '10000' into text field '//*[@id='moneySection']//*[contains(text(), 'Purchase Price')]/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:54.908" endtime="20220131 18:38:58.222"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inDeposit1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:38:58.223" level="INFO">Clicking element '//*[@id='frc-money.deposit1-1088']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:38:58.222" endtime="20220131 18:39:00.864"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inDeposit1}</arg>
+<arg>${Deposit1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:39:00.865" level="INFO">Typing text '500' into text field '//*[@id='frc-money.deposit1-1088']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:39:00.864" endtime="20220131 18:39:04.149"/>
+</kw>
+<status status="PASS" starttime="20220131 18:38:52.308" endtime="20220131 18:39:04.149"/>
+</kw>
+<status status="PASS" starttime="20220131 18:38:49.154" endtime="20220131 18:39:04.150"/>
+</test>
+<test id="s1-s3-t8" name="Save_Intake">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${intakeSave}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220131 18:39:04.154" level="INFO">Clicking button 'xpath=//*[contains(@class,'btn-save')]/..//button'.</msg>
+<status status="PASS" starttime="20220131 18:39:04.153" endtime="20220131 18:39:09.811"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220131 18:39:09.812" endtime="20220131 18:39:10.821"/>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${FURL}</var>
+<doc>Returns the current browser window URL.</doc>
+<msg timestamp="20220131 18:39:11.825" level="INFO">${FURL} = https://refactorui.dev.iclose.ca/iclose/#/propertysale/files</msg>
+<status status="PASS" starttime="20220131 18:39:10.822" endtime="20220131 18:39:11.825"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${FURL}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220131 18:39:11.826" endtime="20220131 18:39:11.826"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${AddIntake}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:39:11.827" endtime="20220131 18:39:16.842"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${AddIntake}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220131 18:39:16.843" endtime="20220131 18:39:22.258"/>
+</kw>
+<status status="PASS" starttime="20220131 18:39:04.152" endtime="20220131 18:39:22.259"/>
+</test>
+<doc>A test suite with a single test for intakes.
+
+This test has a workflow that is created using keywords in
+the imported resource file.</doc>
+<meta name="Version">2.0</meta>
+<status status="PASS" starttime="20220131 18:35:57.357" endtime="20220131 18:39:22.261"/>
+</suite>
+<suite id="s1-s4" name="tc04-Purchase" source="E:\RobotiClose\TestCases\tc04-Purchase.robot">
+<test id="s1-s4-t1" name="Purchase_Intake">
+<kw name="NewIntake" library="kHome">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${AddIntake}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:39:22.297" endtime="20220131 18:39:24.391"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${AddIntake}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:39:24.392" level="INFO">Clicking element 'xpath=//footer//*[contains(@class,'icon-icon_add')]'.</msg>
+<status status="PASS" starttime="20220131 18:39:24.391" endtime="20220131 18:39:26.951"/>
+</kw>
+<status status="PASS" starttime="20220131 18:39:22.297" endtime="20220131 18:39:26.951"/>
+</kw>
+<kw name="Create P_Intake" library="kHome">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Purchase Intake}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:39:26.953" level="INFO">Clicking element 'xpath=//*[contains(@class,'addmenu')]//*[@role='menuitem']//a[contains(text(),'Purchase')]'.</msg>
+<status status="PASS" starttime="20220131 18:39:26.953" endtime="20220131 18:39:29.360"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220131 18:39:32.369" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220131 18:39:29.360" endtime="20220131 18:39:32.369"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>return</arg>
+<arg>window.location.href;</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20220131 18:39:32.370" level="INFO">Executing JavaScript:
+returnwindow.location.href;
+Without any arguments.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220131 18:39:33.591" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220131 18:39:32.440" endtime="20220131 18:39:33.591"/>
+</kw>
+<msg timestamp="20220131 18:39:33.625" level="FAIL">JavascriptException: Message: ReferenceError: returnwindow is not defined
+</msg>
+<status status="FAIL" starttime="20220131 18:39:32.369" endtime="20220131 18:39:33.626"/>
+</kw>
+<status status="FAIL" starttime="20220131 18:39:26.952" endtime="20220131 18:39:33.627"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220131 18:39:33.628" endtime="20220131 18:39:33.628"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220131 18:39:33.628" endtime="20220131 18:39:33.628"/>
+</kw>
+<status status="FAIL" starttime="20220131 18:39:22.296" endtime="20220131 18:39:33.629">JavascriptException: Message: ReferenceError: returnwindow is not defined
+</status>
+</test>
+<test id="s1-s4-t2" name="Property_Info">
+<kw name="Property-Info" library="kIntake">
+<arg>78</arg>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${Wait}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220131 18:39:33.633" endtime="20220131 18:39:34.650"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${instName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:39:34.651" level="INFO">Clicking element '//*[@id='PropertyInfoSection']//label[@for='streetName']/../input'.</msg>
+<status status="PASS" starttime="20220131 18:39:34.650" endtime="20220131 18:39:37.205"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${instName}</arg>
+<arg>${Street}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:39:37.206" level="INFO">Typing text '78' into text field '//*[@id='PropertyInfoSection']//label[@for='streetName']/../input'.</msg>
+<status status="PASS" starttime="20220131 18:39:37.205" endtime="20220131 18:39:40.474"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220131 18:39:42.488" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220131 18:39:40.474" endtime="20220131 18:39:42.488"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${instDrop}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:39:42.488" endtime="20220131 18:39:44.591"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${instDrop}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:39:44.592" level="INFO">Clicking element 'xpath=//*[@class='pac-item'][3]'.</msg>
+<status status="PASS" starttime="20220131 18:39:44.591" endtime="20220131 18:39:47.391"/>
+</kw>
+<status status="PASS" starttime="20220131 18:39:33.632" endtime="20220131 18:39:47.391"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220131 18:39:52.400" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20220131 18:39:47.392" endtime="20220131 18:39:52.400"/>
+</kw>
+<status status="PASS" starttime="20220131 18:39:33.631" endtime="20220131 18:39:52.401"/>
+</test>
+<test id="s1-s4-t3" name="Purchase_Info">
+<kw name="Closing Date" library="kIntake">
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220131 18:39:52.404" endtime="20220131 18:39:52.404"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ClosingDate}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:39:52.404" endtime="20220131 18:39:54.488"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ClosingDate}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:39:54.489" level="INFO">Clicking element 'xpath=//*[@formcontrolname="ClosingDate"]'.</msg>
+<status status="PASS" starttime="20220131 18:39:54.488" endtime="20220131 18:39:57.086"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${cNext}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:39:57.087" endtime="20220131 18:39:59.176"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${cNext}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:39:59.177" level="INFO">Clicking element 'xpath=//*[@formcontrolname="ClosingDate"]/..//button[@title="Next month"]'.</msg>
+<status status="PASS" starttime="20220131 18:39:59.176" endtime="20220131 18:40:01.698"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CDatePick}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:40:01.698" endtime="20220131 18:40:03.761"/>
+</kw>
+<status status="PASS" starttime="20220131 18:39:52.403" endtime="20220131 18:40:03.761"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${CDatePick}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:03.762" level="INFO">Clicking element 'xpath=//*[@role='gridcell']//*[@ngbdatepickerdayview][text()=17]'.</msg>
+<status status="PASS" starttime="20220131 18:40:03.762" endtime="20220131 18:40:06.269"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220131 18:40:08.282" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220131 18:40:06.270" endtime="20220131 18:40:08.282"/>
+</kw>
+<kw name="Requisition Date" library="kIntake">
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220131 18:40:08.284" endtime="20220131 18:40:08.284"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${RequisitDate}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:40:08.285" endtime="20220131 18:40:10.375"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${RequisitDate}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:10.376" level="INFO">Clicking element 'xpath=//*[@formcontrolname="RequisitionDate"]'.</msg>
+<status status="PASS" starttime="20220131 18:40:10.375" endtime="20220131 18:40:13.070"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${rNext}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:40:13.070" endtime="20220131 18:40:15.163"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${rNext}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:15.164" level="INFO">Clicking element 'xpath=//*[@formcontrolname="RequisitionDate"]/..//button[@title="Next month"]'.</msg>
+<status status="PASS" starttime="20220131 18:40:15.163" endtime="20220131 18:40:17.735"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${RDatePick}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:40:17.735" endtime="20220131 18:40:19.814"/>
+</kw>
+<status status="PASS" starttime="20220131 18:40:08.283" endtime="20220131 18:40:19.814"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${RDatePick}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:19.815" level="INFO">Clicking element 'xpath=//*[@role='gridcell']//*[@ngbdatepickerdayview][text()=16]'.</msg>
+<status status="PASS" starttime="20220131 18:40:19.815" endtime="20220131 18:40:22.317"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220131 18:40:24.334" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220131 18:40:22.317" endtime="20220131 18:40:24.334"/>
+</kw>
+<status status="PASS" starttime="20220131 18:39:52.402" endtime="20220131 18:40:24.335"/>
+</test>
+<test id="s1-s4-t4" name="Buyer_Lawyer_Info">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20220131 18:40:24.339" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20220131 18:40:24.338" endtime="20220131 18:40:25.378"/>
+</kw>
+<kw name="Lawyer Info" library="kIntake">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${sLawyer}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:40:25.379" endtime="20220131 18:40:27.479"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sLawyer}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:27.480" level="INFO">Clicking element '//*[@id="openingInfo"]//*[@formcontrolname='Lawyer']'.</msg>
+<status status="PASS" starttime="20220131 18:40:27.479" endtime="20220131 18:40:30.068"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sLawyerDrop}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:30.069" level="INFO">Clicking element '//*[@id="openingInfo"]//*[@formcontrolname='Lawyer']//*[@role='option'][3]'.</msg>
+<status status="PASS" starttime="20220131 18:40:30.068" endtime="20220131 18:40:32.755"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${Wait}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220131 18:40:32.755" endtime="20220131 18:40:33.771"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${sClerk}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220131 18:40:33.771" endtime="20220131 18:40:35.891"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sClerk}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:35.892" level="INFO">Clicking element '//*[@id="openingInfo"]//*[@formcontrolname='Clerk']'.</msg>
+<status status="PASS" starttime="20220131 18:40:35.891" endtime="20220131 18:40:38.541"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sClerkDrop}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:38.542" level="INFO">Clicking element '//*[@id="openingInfo"]//*[@formcontrolname='Clerk']//*[@role='option'][2]'.</msg>
+<status status="PASS" starttime="20220131 18:40:38.541" endtime="20220131 18:40:41.048"/>
+</kw>
+<status status="PASS" starttime="20220131 18:40:25.379" endtime="20220131 18:40:41.048"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220131 18:40:43.058" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220131 18:40:41.049" endtime="20220131 18:40:43.058"/>
+</kw>
+<status status="PASS" starttime="20220131 18:40:24.337" endtime="20220131 18:40:43.059"/>
+</test>
+<test id="s1-s4-t5" name="Client_Info">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20220131 18:40:43.063" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20220131 18:40:43.062" endtime="20220131 18:40:44.093"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1Type}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:44.095" level="INFO">Clicking element '//*[@id="Client0"]//*[@formcontrolname='Type']'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220131 18:40:46.321" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220131 18:40:45.183" endtime="20220131 18:40:46.321"/>
+</kw>
+<msg timestamp="20220131 18:40:46.324" level="FAIL">ElementClickInterceptedException: Message: Element &lt;select class="form-control ng-untouched ng-pristine ng-valid"&gt; is not clickable at point (562,605) because another element &lt;footer&gt; obscures it
+</msg>
+<status status="FAIL" starttime="20220131 18:40:44.094" endtime="20220131 18:40:46.324"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1TypeDrop}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220131 18:40:46.325" endtime="20220131 18:40:46.325"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${inC1RN}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20220131 18:40:46.326" endtime="20220131 18:40:46.326"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inC1RN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220131 18:40:46.327" endtime="20220131 18:40:46.327"/>
+</kw>
+<kw name="Client0-Info" library="kIntake">
+<status status="NOT RUN" starttime="20220131 18:40:46.327" endtime="20220131 18:40:46.327"/>
+</kw>
+<status status="FAIL" starttime="20220131 18:40:43.061" endtime="20220131 18:40:46.328">ElementClickInterceptedException: Message: Element &lt;select class="form-control ng-untouched ng-pristine ng-valid"&gt; is not clickable at point (562,605) because another element &lt;footer&gt; obscures it
+</status>
+</test>
+<test id="s1-s4-t6" name="Seller_Info">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20220131 18:40:46.332" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20220131 18:40:46.331" endtime="20220131 18:40:47.372"/>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<arg>${inS1Type}</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20220131 18:40:47.373" endtime="20220131 18:40:49.524"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inS1Type}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:49.526" level="INFO">Clicking element '//*[@id="Sellers0"]//*[@formcontrolname='Type']'.</msg>
+<status status="PASS" starttime="20220131 18:40:49.525" endtime="20220131 18:40:52.051"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inS1TypeDrop}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:52.052" level="INFO">Clicking element '//*[@id="Sellers0"]//*[@formcontrolname='Type']//*[@value='Client']'.</msg>
+<status status="PASS" starttime="20220131 18:40:52.052" endtime="20220131 18:40:54.441"/>
+</kw>
+<kw name="Seller0-Info" library="kIntake">
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${Wait}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220131 18:40:54.443" endtime="20220131 18:40:55.461"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inS1FName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:55.462" level="INFO">Clicking element '//*[@id="Sellers0"]//*[@formcontrolname='FirstName']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:40:55.461" endtime="20220131 18:40:58.021"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inS1FName}</arg>
+<arg>${S1FName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:40:58.022" level="INFO">Typing text 'Lok' into text field '//*[@id="Sellers0"]//*[@formcontrolname='FirstName']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:40:58.021" endtime="20220131 18:41:01.283"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inS1LName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:41:01.284" level="INFO">Clicking element '//*[@id="Sellers0"]//*[@formcontrolname='Surname']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:41:01.283" endtime="20220131 18:41:03.901"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inS1LName}</arg>
+<arg>${S1LName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:41:03.902" level="INFO">Typing text 'Nicholas' into text field '//*[@id="Sellers0"]//*[@formcontrolname='Surname']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:41:03.901" endtime="20220131 18:41:07.450"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inS1MName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:41:07.451" level="INFO">Clicking element '//*[@id="Sellers0"]//*[@formcontrolname='MiddleName']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:41:07.450" endtime="20220131 18:41:10.086"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inS1MName}</arg>
+<arg>${S1MName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:41:10.087" level="INFO">Typing text 'Gary' into text field '//*[@id="Sellers0"]//*[@formcontrolname='MiddleName']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:41:10.086" endtime="20220131 18:41:13.424"/>
+</kw>
+<status status="PASS" starttime="20220131 18:40:54.442" endtime="20220131 18:41:13.424"/>
+</kw>
+<status status="PASS" starttime="20220131 18:40:46.330" endtime="20220131 18:41:13.425"/>
+</test>
+<test id="s1-s4-t7" name="Money_Info">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20220131 18:41:13.429" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20220131 18:41:13.428" endtime="20220131 18:41:14.488"/>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<arg>${MHeading}</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20220131 18:41:14.489" endtime="20220131 18:41:16.562"/>
+</kw>
+<kw name="Money-Info" library="kIntake">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inPrice}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:41:16.564" level="INFO">Clicking element '//*[@id='moneySection']//*[contains(text(), 'Purchase Price')]/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:41:16.563" endtime="20220131 18:41:19.238"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inPrice}</arg>
+<arg>${pPrice}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:41:19.239" level="INFO">Typing text '10000' into text field '//*[@id='moneySection']//*[contains(text(), 'Purchase Price')]/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:41:19.238" endtime="20220131 18:41:22.725"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inDeposit1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220131 18:41:22.726" level="INFO">Clicking element '//*[@id='frc-money.deposit1-1088']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:41:22.725" endtime="20220131 18:41:25.329"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inDeposit1}</arg>
+<arg>${Deposit1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220131 18:41:25.330" level="INFO">Typing text '500' into text field '//*[@id='frc-money.deposit1-1088']/..//input'.</msg>
+<status status="PASS" starttime="20220131 18:41:25.329" endtime="20220131 18:41:28.621"/>
+</kw>
+<status status="PASS" starttime="20220131 18:41:16.563" endtime="20220131 18:41:28.621"/>
+</kw>
+<status status="PASS" starttime="20220131 18:41:13.427" endtime="20220131 18:41:28.622"/>
+</test>
+<test id="s1-s4-t8" name="Save_Intake">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${intakeSave}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220131 18:41:28.625" level="INFO">Clicking button 'xpath=//*[contains(@class,'btn-save')]/..//button'.</msg>
+<status status="PASS" starttime="20220131 18:41:28.624" endtime="20220131 18:41:34.306"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220131 18:41:34.307" endtime="20220131 18:41:35.316"/>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${FURL}</var>
+<doc>Returns the current browser window URL.</doc>
+<msg timestamp="20220131 18:41:36.328" level="INFO">${FURL} = https://refactorui.dev.iclose.ca/iclose/#/propertypurchase/files</msg>
+<status status="PASS" starttime="20220131 18:41:35.317" endtime="20220131 18:41:36.328"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${FURL}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220131 18:41:36.329" endtime="20220131 18:41:36.330"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220131 18:41:36.331" endtime="20220131 18:41:47.590"/>
+</kw>
+<status status="PASS" starttime="20220131 18:41:28.623" endtime="20220131 18:41:47.590"/>
+</test>
+<doc>A test suite with a single test for Purchase intakes and file.
+
+This test has a workflow that is created using keywords in
+the imported resource file.</doc>
+<meta name="Version">2.0</meta>
+<status status="FAIL" starttime="20220131 18:39:22.267" endtime="20220131 18:41:47.592"/>
+</suite>
+<meta name="Version">2.0</meta>
+<status status="FAIL" starttime="20220131 18:34:35.882" endtime="20220131 18:41:47.597"/>
+</suite>
+<statistics>
+<total>
+<stat pass="18" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="18" fail="3" skip="0" id="s1" name="tc01-InvalidLogin &amp; tc02-ValidLogin &amp; tc03-Intake &amp; tc04-Purchase">tc01-InvalidLogin &amp; tc02-ValidLogin &amp; tc03-Intake &amp; tc04-Purchase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
